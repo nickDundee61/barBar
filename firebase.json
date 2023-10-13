@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "headers": [
+      { "source":"**/*.@(jpg|jpeg|png|gif|webp|svg)", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
+    ],
+    "public": "y",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+    <script src="timer_permutation.js"></script>
+    <script src="addItemsManager.js"></script>
+</head>
+
+<body>
+    <div class="gridBar">
+        <div class="gridSignAndItem">
+            <div class="boxMachine">
+                <div class="imageContainer"><img src="../../open_sign.PNG" class="image" id="sign"></div>
+                <div class="interuptorBox">
+                    <div class="switchMachine" id="interuptorCloseSign">O</div>
+                    <div class="switchMachine" id="interuptor">O</div>
+                </div>
+
+            </div>
+            <div class="addItemPanel">
+                <div class="priceAndQtyPanel">
+                    <input type="text" placeholder="nom" id="productName" style="width :100px;height: 20px">
+                    <input type="number" placeholder="prix" id="productPrice" style="width :50px;height: 20px">
+                    <div class="addButton" id="addButton">Go</div>
+                </div>
+                <div class="total" id="total"></div>
+                <div id="grandTotal" class="grandTotal"></div>
+                <div id="valider" class="valider">VALIDER</div>
+            </div>
+        </div>
+        <div class="carte" id="carte"> </div>
+       
+
+    </div>
+</body>
+
+</html>

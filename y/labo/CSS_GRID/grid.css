@@ -1,0 +1,32 @@
+.myGrid{
+
+    display:grid;
+    grid-template-columns: 20% 20% 20%;
+   
+}
+
+.un {
+
+    width:200px;
+    height:200px;
+    background-color: blueviolet;
+}
+
+.deux {
+
+    width:200px;
+    height:200px;
+    background-color: rgb(36, 152, 18);
+}
+.trois {
+
+    width:200px;
+    height:200px;
+    background-color: rgb(189, 36, 82);
+}
+.quatre {
+
+    width:200px;
+    height:200px;
+    background-color: rgb(13, 32, 176);
+}

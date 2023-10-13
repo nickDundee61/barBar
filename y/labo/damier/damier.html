@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="labo.css">
+   
+    <title>Document</title>
+</head>
+<body>
+    <div class="chessboard" id="chessboard"></div>
+
+  <script>
+    // Get the chessboard element
+    const chessboard = document.getElementById("chessboard");
+    // Loop to create the chessboard
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement("div");
+        square.classList.add("square");
+        if ((row + col) % 2 !==0) {
+          square.classList.add("black");
+        }
+        chessboard.appendChild(square);
+      }
+    }
+  </script>
+</body>
+</html>
