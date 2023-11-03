@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <div aria-placeholder="hello">HELLO</div>
+    <form>
+        <input type="text" id="city">
+        <button type ="submit" id="but">Go</buttton>
+
+    </form>
+
+
+    <script>
+        async function fetchWeather(value) {
+        
+        
+           
+         
+            const options = {
+                method: 'GET',
+                url: 'https://weatherapi-com.p.rapidapi.com/current.json',
+                params: { q: value, },
+                headers: {
+                    'X-RapidAPI-Key': '9743f1ca22mshe797688c5fda211p1dbb81jsnf6773c1d19b2',
+                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await axios.request(options);
+                console.log(response)
+         
+
+                let doc = document.createElement("div");
+                let temp = response.data.current.feelslike_c + " C°"
+                doc.textContent = response.data.location.name+ " "+temp;
+      
+                let img = document.createElement("img");
+                img.setAttribute("src",response.data.current.condition.icon)
+                document.body.appendChild(img)
+                document.body.appendChild(doc)
+               
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        let goButton = document.getElementById("but");
+        let cityName = document.getElementById("city");
+        goButton.addEventListener("click", (e)=>{
+e.preventDefault()
+
+value = cityName.value;
+fetchWeather(value)
+
+})
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+
+.horizontalGrid{
+
+
+
+    display:grid;
+    grid-template-columns: repeat(10,50px);
+    gap:2px;
+}
+
+.square{
+
+width: 50px;
+height: 50px;
+border:2px solid black;
+background-color: cadetblue;
+
+}
+
+.affichage{
+
+    font-size:2rem;
+}
+
+.refreshButton{
+
+border:2px solid black;
+display:inline-block;
+padding: 1rem;
+border-radius: 10px;
+cursor:pointer;
+
+}
+
+.displayList{
+
+    display:flex;
+    flex-direction: column;
+}

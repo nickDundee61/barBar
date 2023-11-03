@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-    addButton.addEventListener("click", () => {
+    addButton.addEventListener("click", ()=> {
         const newProduct = document.createElement("div");
         newProduct.classList.add("carteItem");
         const prodName = document.createElement("div");
@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 parentDiv.remove();
             });
 
+            
             total.appendChild(subTotal);
         });
 
@@ -80,13 +81,20 @@ document.addEventListener("DOMContentLoaded", () => {
         productName.value = "";
         productPrice.value = "";
     });
-    valider.addEventListener("click", () => {
-        while (total.firstChild) {
-            total.removeChild(total.firstChild);
-        }
-        grandTotalResult = 0;
-        grandTotal.textContent = ""
-    });
+
+    
+ const A = document.getElementById("A");
+ const B = document.getElementById("B");
+ const C = document.getElementById("C");
+
+
+ A.addEventListener("click",()=>{
+
+    
+
+ })
+
+
 
 });
 

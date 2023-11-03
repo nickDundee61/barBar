@@ -1,32 +1,91 @@
-.myGrid{
-
-    display:grid;
-    grid-template-columns: 20% 20% 20%;
-   
+* {
+  box-sizing: border-box;
 }
 
-.un {
-
-    width:200px;
-    height:200px;
-    background-color: blueviolet;
+body {
+  margin: 0;
+  /* Reset the margin to 0 */
+  padding: 40px;
 }
 
-.deux {
-
-    width:200px;
-    height:200px;
-    background-color: rgb(36, 152, 18);
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
 }
-.trois {
 
-    width:200px;
-    height:200px;
-    background-color: rgb(189, 36, 82);
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
 }
-.quatre {
 
-    width:200px;
-    height:200px;
-    background-color: rgb(13, 32, 176);
+
+.topNav {
+  height: 100px;
+  background-color: darkcyan;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom: 20px;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.panneauGauche {
+  background-color: bisque;
+  color: black;
+  width: 25%;
+  margin-right: 5%;
+}
+
+.panneauDroite {
+
+  color: black;
+  width: 75%;
+
+}
+
+.sect {
+  width: 100%;
+  height: 100%;
+  background-color: aquamarine;
+}
+
+.testInlineBlock {
+
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+
+.testBlock {
+
+  display: block;
+
+  width: 100px;
+  height: 100px;
+}
+
+.img {
+  display: block;
+  max-width: 230px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+  }
+}
+

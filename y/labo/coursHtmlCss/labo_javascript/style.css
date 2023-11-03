@@ -1,0 +1,63 @@
+.bouton{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+width:50px;
+height:50px;
+border:2px solid black;
+border-radius:50%;
+color:black;
+background-color: aqua;
+cursor:pointer;
+
+
+}
+
+.affichage{
+
+    border:2px solid black;
+    width:100px;
+    height:100px;
+}
+
+.carre{
+
+    width:50px;
+    height:50px;
+    background-color: blue;
+
+}
+
+.cercle {
+
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background-color: blue;
+}
+
+.mainContainer {
+    display:flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    background: blue;
+}
+
+.innerDiv{
+display:flex;
+flex-direction: row;
+justify-content: space-between;
+    width: auto;
+    height:auto;
+    margin:1rem;
+    padding:1rem;
+    border:2px solid black;
+}
+
+.destroy{
+
+    width: 100px;
+    height:100px;
+    background-color: red;
+}
