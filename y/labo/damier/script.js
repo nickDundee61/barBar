@@ -1,6 +1,6 @@
 let progression = 0;
 
-
+//définition de l'objet représentant toute l'arborescence , référencement des images et des textes
 let arborescence = {
 
     window: {
@@ -304,10 +304,7 @@ let toutesLesDiv = document.querySelectorAll("div");
 //itération du tableau et changement de la couleur de fond pour toutes les <div>
 
 
-
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+//création des fonctions de construction (conteneur et sous conteneur)
 function createContainer(content, backgroundColor) {
     let container = document.createElement("div");
     container.classList.add("container");
@@ -324,13 +321,14 @@ function createInsideDiv(content, backgroundColor) {
     insideDiv.id = content;
     return insideDiv;
 }
-
+//nettoyage des conteneur
 function clearContainers() {
     while (containerStack.length > 0) {
         let container = containerStack.pop();
         grid.removeChild(container);
     }
 }
+//nettoyage des conteneurs selon la position de l'utilisateur
 function clearContainersUpTo(targetContainer) {
     while (containerStack.length > 0 && containerStack[containerStack.length - 1] !== targetContainer) {
         let container = containerStack.pop();
@@ -339,7 +337,7 @@ function clearContainersUpTo(targetContainer) {
 }
 
 
-
+//affichage des images et contrôle
 const setImageAndText = (prop, obj, innerDiv) => {
 
     if (prop === "exemple") {
@@ -401,30 +399,31 @@ let containerStack = [];
 
 
 
-
+//bouclage dans l'objet d'arborescence , attente du chargement du DOM avant exécution
 document.addEventListener("DOMContentLoaded", () => {
 
 
     let window = createContainer("window", "#C573D3");
     grid.appendChild(window);
     containerStack.push(window);
-
+//### NIVEAU 0
     for (let i in arborescence) {
+        //### NIVEAU 1
         for (let j in arborescence[i]) {
             let element = createInsideDiv(j, "#737AD3");
             window.appendChild(element);
-
+//Développement du conteneur sur click
             element.addEventListener("click", () => {
                 clearContent();
-
+//si l'arbre est déployé au delà de ce point, effacer les conteneurs
                 clearContainersUpTo(window);
-
+//changement de couleur au clique
                 element.style.border = "2px solid green";
 
                 let doc = createContainer(j, "#73D3D0");
                 grid.appendChild(doc);
                 containerStack.push(doc);
-
+//### NIVEAU 2
                 for (let k in arborescence[i][j]) {
                     let elDoc = createInsideDiv(k, "#39D035");
 
@@ -432,7 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     doc.appendChild(elDoc);
 
                     elDoc.addEventListener("click", () => {
-                        // Clear containers beyond this point
+                    
                   
                         clearContent()
                         clearContainersUpTo(doc);
@@ -442,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         let content3 = createContainer(k, "#E3E61E");
                         grid.appendChild(content3);
                         containerStack.push(content3);
-
+//### NIVEAU 3
                         for (let l in arborescence[i][j][k]) {
                             let elContent3 = createInsideDiv(l, "#F0B27A");
 
@@ -459,7 +458,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 let content4 = createContainer(l, "#E46B2A");
                                 grid.appendChild(content4);
                                 containerStack.push(content4);
-
+//### NIVEAU 4 ##########################
                                 for (let m in arborescence[i][j][k][l]) {
                                     let elContent4 = createInsideDiv(m, "#F0B27A");
                                     content4.appendChild(elContent4);
@@ -479,14 +478,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                         let content5 = createContainer(m, "#EC7063");
                                         grid.appendChild(content5);
                                         containerStack.push(content5);
-
+//### NIVEAU 5 ############################
                                         for (let n in arborescence[i][j][k][l][m]) {
                                             let elContent5 = createInsideDiv(n, "#F0B27A");
                                             content5.appendChild(elContent5);
                                             setImageAndText(n, arborescence[i][j][k][l][m], elContent5)
                                             elContent5.addEventListener("click", () => {
                                                 clearContent()
-                                                // Clear containers beyond this point
+                                          
 
                                                 clearContainersUpTo(content5);
 
@@ -495,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                 let content6 = createContainer(n, "#EC7063");
                                                 grid.appendChild(content6);
                                                 containerStack.push(content6);
-
+//### NIVEAU 6 ############################
                                                 for (let o in arborescence[i][j][k][l][m][n]) {
                                                     let elContent6 = createInsideDiv(o, "#F0B27A");
                                                     content6.appendChild(elContent6);
@@ -508,7 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                                         let content7 = createContainer(n, "#EC7063");
                                                         grid.appendChild(content7);
                                                         containerStack.push(content7);
-
+//### NIVEAU 7  ############################
                                                         for (let p in arborescence[i][j][k][l][m][n][o]) {
 
 
@@ -522,12 +521,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                                                 clearContainersUpTo(content7);
                                                                 elContent7.style.border = "2px solid green";
 
-                                                                let content8 = createContainer(p, "##B01EE2");
+                                                                let content8 = createContainer(p, "#B01EE2");
                                                                 grid.appendChild(content8);
                                                                 containerStack.push(content8);
-
+//### NIVEAU 8 ############################
                                                                 for (let q in arborescence[i][j][k][l][m][n][o][p]) {
-                                                                    let elContent8 = createInsideDiv(q, "#YOUR_COLOR");
+                                                                    let elContent8 = createInsideDiv(q, "#B01EE2");
                                                                     content8.appendChild(elContent8);
 
 

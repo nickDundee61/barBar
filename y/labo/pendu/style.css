@@ -1,0 +1,131 @@
+body{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+   align-items: center;
+}
+
+*{
+    margin:0.25rem;
+}
+
+.button {
+
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    border :solid 2px white;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.block {
+
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border :solid 2px black;
+    color: black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:0.5%;
+ 
+   
+}
+
+.alphaLetter{
+
+
+
+
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border :solid 2px black;
+        color: black;
+        display:flex;
+        align-items: center;
+        
+        justify-content: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin:1%;
+        cursor: pointer;
+     
+       
+    
+}
+
+.blockConstructor{
+
+    display:flex;
+    flex-direction: row;
+
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.alphaC {
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:50%
+}
+
+.blocDuPendu{
+
+    display:flex;
+    flex-direction: row;
+
+}
+
+.blocDuPendu >div{
+    width: 25px;
+    height:25px;
+    background-color: crimson;
+    border: 2px solid black;
+    margin:1%
+}
+
+.boutonNouvellePartie{
+
+    width:10%;
+    height:5%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    color:white;
+    cursor: pointer;
+    border :2px solid black;
+    border-radius: 1rem;
+    visibility: hidden;
+}
+
+.boutonShow{
+    visibility: visible;
+}
+
+.panneauDesOptions{
+
+    display:flex;
+    flex-direction: row;
+    border: 2px solid black;
+    background-color: grey;
+    border-radius: 5px;
+    width: 20%;
+    height: 10%;
+}
+
+.tilePendu{
+
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    color:white;
+    font-size: 1rem;
+}

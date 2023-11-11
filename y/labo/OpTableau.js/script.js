@@ -1,12 +1,13 @@
 let values = [];
 let arrayFunction =[]
-
+//CONSTRUCTION DES DIFFERENTS FONCTIONS ET MISE EN TALBEAU POUR APPEL ALEATOIRE
 const returnMulti = (value)=>{
     let randFactor = Math.floor(Math.random()*5)
     value = value.map(e =>e*randFactor)
     let text = `let nouveauTableau = tableauOrignal.map(e => e * ${randFactor})`
     return [value,text,randFactor]
  }
+ //mise en tableau
  arrayFunction.push(returnMulti)
  
  const returnPlus = (value)=>{
@@ -74,14 +75,14 @@ randArray.push(value[rand])
     randArray.push(randFactor)
     
     let sortRand = Math.floor(Math.random()* randArray.length)
-    let text = `let nouveauTableau = tableauOrignal.include(${randArray[sortRand]})`
+    let text = `let nouveauTableau = tableauOrignal.includes(${randArray[sortRand]})`
     value = value.includes(randArray[sortRand])
    
 
     return [value,text,randArray[sortRand]]
  }
  arrayFunction.push(returnInclude)
-
+//CONTRUCTION DES ELEMENTS
 const originalContainer = document.createElement("div");
 originalContainer.id = "original-container";
 
@@ -117,15 +118,14 @@ document.body.appendChild(formula)
 // Function to generate squares based on an array of values
 function generateSquares() {
     deleteContainer(originalContainer, mappedContainer)
+    //ajuste le nombre de cases à 3 minimum
     let rand = Math.floor(Math.random() * 10 )+3
-
+//choisi un nombre aléatoire allant jusqu'à 100
     for (let i = 0; i < rand; i++) {
         let newRand = Math.floor(Math.random() * 100)
         values.push(newRand)
     }
-
-
-    // Clear the existing squares in both containers
+    // Nettoyage des conteneur
     originalContainer.innerHTML = "";
     mappedContainer.innerHTML = "";
 
@@ -155,34 +155,22 @@ if(typeof newValues !=="boolean"){
 values = newValues;
 parameter.textContent = "PARAMETRE : "+rd.toString();
 }else{
-
     parameter.textContent =newValues;
 }
-  
     formula.textContent = text
-  
-
-
 }
-
 // Add a click event listener to the "Go" button
 const deleteContainer = (container, containerTwo) => {
 
     if (container.children.length > 0) {
         for (let i of container.children) {
-
             i.remove()
-
         }
-
     }
-
     if (containerTwo.children.length > 0) {
         for (let i of containerTwo.children) {
-
             i.remove()
         }
-
     }
     values =[]
 }

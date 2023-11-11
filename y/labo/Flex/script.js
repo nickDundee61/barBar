@@ -1,5 +1,5 @@
 
-//CONTAINER
+//Objet pour construire les boutons radio qui affecteront la disposition flex du container
 let objCont = {
 
     wrap: {
@@ -24,14 +24,15 @@ let objCont = {
 
 }
 
-//OBJET
+//Objet pour construire les boutons radio qui affecteront la disposition flex du contenu
 let objObj = {
-
+//les options de flex-wrap
     wrap: {
         name: "flex-wrap",
         tab: [ "no-wrap","wrap", "inherit", "wrap-reverse"],
         active: true,
     },
+    //option de justify-content etc....
     justfyContent: {
         name: "justify-content",
         tab: ["flex-start","flex-end","space-around", "space-between", "space-evenly", "center",],
@@ -54,34 +55,37 @@ let objObj = {
         tab:["stretch","start","end","center","safe","first baseline","baseline"]
     }
 }
-
+//référencement du conteneur principal
 let mainContainer = document.getElementById("mainContainer")
+//référencement du conteneur de gauche
 let leftContainer = document.getElementById("leftContainer")
+//référencement du conteneur central (Flex en action)
 let container = document.getElementById("container")
+//référencement du conteneur de droite
 let rightContainer = document.getElementById("righContainer")
-let contrainte = document.getElementById("contrainte")
 
+//référencement de la contrainte qui permet d'avoir le conteneur en vrai flex ou contraint à 500px
+let contrainte = document.getElementById("contrainte")
+//référencement du sélecteur du nombre total d'objets à afficher
 let objectNumberSelector =document.getElementById("objectNumberSelector")
 let objetContainer =document.getElementById("objetContainer")
 
 let shapeSelector = document.getElementById("shapeSelector")
-
+//nombre d'objets par défaut
 let nubmerOfObjects = 4;
+//mode par défaut (Flex)
 let form ="reakFlex";
+
 let containerSize =""
-
+//tableau pour changer la forme des div représentée
 let tab=["carre","rond","tile","mixed","reakFlex"]
-
+//constructeur du panneau de gauche
 const containerControler =(flexObj)=>{
     let id = "container";
     for (let f in flexObj) {
         let choice = document.createElement("div");
         choice.textContent = flexObj[f].name;
         choice.classList.add("menuClass");
-    
-      
-    
-    
     
         leftContainer.appendChild(choice);
     let index =0;
@@ -94,14 +98,15 @@ const containerControler =(flexObj)=>{
             radio.name = f+id;
        
             radio.id = t+id;
-         //   radio.classList.add("track-item")
+      
             let label = document.createElement("label");
             label.setAttribute("for", t+id);
             label.textContent = t;
-    //label.classList.add("track-label")
+    
             containDiv.appendChild(label);
             containDiv.appendChild(radio);
             choice.appendChild(containDiv);
+            //sélectionne la propriété flex par défaut (mise en premier dans l'objet de représentation)
             if( index===0){
     
                 radio.checked = true;
@@ -110,25 +115,25 @@ const containerControler =(flexObj)=>{
                 radio.checked = false;
     
             }
-         
+         //écouteur d'événement sur les boutons radio
             radio.addEventListener("click", (event) => {
              
-    
+    //nettoyage du conteneur avant affichage
                 clearContainer(container);
+                //récupération de la propriété voulue
                 property = flexObj[f].name;
                 option = t;
+                //construction de l'instruction css si elle n'existe pas 
                 if (cssString === "") {
                     cssString += `${property}:${option};`;
+                   // ou si elle existe alors il faut retirer la première propriété en doublon (fonction removeOldest)
                 } else {
            
-    
         cssString = removeOldestProperty(cssString, property);
-        cssString += `${property}:${option};`;
-    
-    
-                  
+        cssString += `${property}:${option};`; 
                  
                 }
+                //affichage en différé des div
                 delayedLoop();
             
             });
@@ -140,7 +145,8 @@ const containerControler =(flexObj)=>{
 
 
   }
-
+//construction du panneau de gauche (pour les options flex du contenu d'un conteneur flex)
+//très similaire à la construction du panneau de gauche
   const containerControler2 =(flexObj)=>{
     let id = "objet";
     for (let f in flexObj) {
@@ -151,9 +157,6 @@ const containerControler =(flexObj)=>{
         let containDivCheck = document.createElement("div");
       
         containDivCheck.classList.add("innerMenuClass")
-    
-    
-    
         choice.appendChild(containDivCheck);
     let index =0;
         for (let t of flexObj[f].tab) {
@@ -184,21 +187,16 @@ const containerControler =(flexObj)=>{
          
             radio.addEventListener("click", (event) => {
              
-    
                 clearContainer(container);
                 property = flexObj[f].name;
                 option = t;
                 if (cssString === "") {
                     cssString += `${property}:${option};`;
                 } else {
-           
-    
+        
                     cssStringElement = removeOldestProperty(cssStringElement, property);
                     cssStringElement += `${property}:${option};`;
     
-    
-                  
-                 
                 }
                 delayedLoop();
               
@@ -213,7 +211,7 @@ const containerControler =(flexObj)=>{
   }
 
 
-
+//options supplémentaires (nombres d'objet, type de conteneur, forme des objets etc...)
 const moreOptions = ()=>{
 
     objectNumberSelector.addEventListener("change",(e)=>{
@@ -285,7 +283,7 @@ const clearContainer = (cont) => {
     container.setAttribute("style", cssString)
     function iteration() {
 
-        if (i <=nubmerOfObjects) { // Change the condition as needed
+        if (i <=nubmerOfObjects) { 
             let element = document.createElement("div");
      
             element.classList.add(form);
@@ -293,6 +291,7 @@ const clearContainer = (cont) => {
             element.setAttribute("style",cssStringElement)
     
             element.textContent = i.toString()
+            //création de 10 objets dans chaque div
             for(let x =0;x<10;x++){
 
                 let el = document.createElement("div");
